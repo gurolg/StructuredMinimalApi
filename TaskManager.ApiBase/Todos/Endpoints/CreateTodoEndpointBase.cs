@@ -10,7 +10,7 @@ using TaskManager.ApiBase.Todos.Dtos;
 namespace TaskManager.ApiBase.Todos.Endpoints;
 
 
-public abstract class CreateTodoEndpointBase //: IEndpoint
+public abstract class CreateTodoEndpointBase : IYaverEndpoint
 {
     public void AddRoute(IEndpointRouteBuilder app) =>
         app.MapPost("/todos", (

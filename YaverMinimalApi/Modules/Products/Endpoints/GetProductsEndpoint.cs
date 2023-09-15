@@ -7,7 +7,7 @@ using YaverMinimalApi.Modules.Products.Mappers;
 
 namespace YaverMinimalApi.Modules.Products.Endpoints;
 
-public class GetProductsEndpoint : GetProductsEndpointBase, IYaverEndpoint
+public class GetProductsEndpoint : GetProductsEndpointBase
 {
 	private readonly ApiDbContext _db;
 

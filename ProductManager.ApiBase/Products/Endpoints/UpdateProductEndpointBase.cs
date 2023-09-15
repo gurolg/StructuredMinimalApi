@@ -10,8 +10,7 @@ using ProductManager.ApiBase.Products.Dtos;
 
 namespace ProductManager.ApiBase.Products.Endpoints;
 
-
-public abstract class UpdateProductEndpointBase //: IEndpoint
+public abstract class UpdateProductEndpointBase : IYaverEndpoint
 {
     public void AddRoute(IEndpointRouteBuilder app) =>
         app.MapPut("/products/{id}", (

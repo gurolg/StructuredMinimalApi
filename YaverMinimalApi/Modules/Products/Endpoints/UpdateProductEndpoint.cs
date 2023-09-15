@@ -6,7 +6,7 @@ using YaverMinimalApi.Data;
 
 namespace YaverMinimalApi.Modules.Products.Endpoints;
 
-public class UpdateProductEndpoint : UpdateProductEndpointBase, IYaverEndpoint
+public class UpdateProductEndpoint : UpdateProductEndpointBase
 {
 	private readonly ApiDbContext _db;
 

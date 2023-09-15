@@ -11,7 +11,7 @@ using TaskManager.ApiBase.Todos.Dtos;
 namespace TaskManager.ApiBase.Todos.Endpoints;
 
 
-public abstract class UpdateTodoEndpointBase //: IEndpoint
+public abstract class UpdateTodoEndpointBase : IYaverEndpoint
 {
     public void AddRoute(IEndpointRouteBuilder app) =>
         app.MapPut("/todos/{id}", (

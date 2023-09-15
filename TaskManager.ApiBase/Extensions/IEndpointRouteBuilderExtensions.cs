@@ -1,8 +1,10 @@
-﻿namespace YaverMinimalApi.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace TaskManager.ApiBase.Extensions;
 
 public static class IEndpointRouteBuilderExtensions
 {
-    public static void MapEndpoints(this WebApplication builder)
+    public static void MapTaskManagerEndpoints(this Microsoft.AspNetCore.Builder.WebApplication builder)
     {
         var scope = builder.Services.CreateScope();
 

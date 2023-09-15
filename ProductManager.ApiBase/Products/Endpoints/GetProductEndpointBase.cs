@@ -10,7 +10,7 @@ using ProductManager.ApiBase.Products.Dtos;
 
 namespace ProductManager.ApiBase.Products.Endpoints;
 
-public abstract class GetProductEndpointBase //: IEndpoint
+public abstract class GetProductEndpointBase : IYaverEndpoint
 {
     public void AddRoute(IEndpointRouteBuilder app) =>
         app.MapGet("/products/{id}", (

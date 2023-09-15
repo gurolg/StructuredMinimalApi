@@ -7,7 +7,7 @@ using YaverMinimalApi.Modules.Todos.Mappers;
 
 namespace YaverMinimalApi.Modules.Todos.Endpoints;
 
-public class GetTodoEndpoint : GetTodoEndpointBase, IYaverEndpoint
+public class GetTodoEndpoint : GetTodoEndpointBase
 {
 	private readonly ApiDbContext _db;
 

@@ -1,8 +1,12 @@
-﻿namespace YaverMinimalApi.Extensions;
+﻿using System;
+using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace TaskManager.ApiBase.Extensions;
 
 public static class IServiceCollectionExtensions
 {
-    public static IServiceCollection AddEndpoints(this IServiceCollection services)
+    public static IServiceCollection AddTaskManagerEndpoints(this IServiceCollection services)
     {
         var endpoints = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(s => s.GetTypes())

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +9,7 @@ using TaskManager.ApiBase.Todos.Dtos;
 
 namespace TaskManager.ApiBase.Todos.Endpoints;
 
-public abstract class GetTodoEndpointBase //: IEndpoint
+public abstract class GetTodoEndpointBase : IYaverEndpoint
 {
     public void AddRoute(IEndpointRouteBuilder app) =>
         app.MapGet("/todos/{id}", (
