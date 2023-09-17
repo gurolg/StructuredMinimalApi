@@ -1,21 +1,12 @@
 ﻿using Agrio.Bo.PIM.ApiBase.Features.Products.CreateProduct;
-using YaverMinimalApi.Features.Products.Entities;
+using Agrio.PIM.ServiceBase.Features.Products.CreateProduct;
 
-namespace YaverMinimalApi.Features.Products.Create;
+namespace YaverMinimalApi.Features.PIM.Products.Create;
 
-public class Mapper : Mapper<Request, Response, ProductEntity>
+public class Mapper : Mapper<Request, Response, CreateProductResult>
 {
-    public override ProductEntity ToEntity(Request r)
-    {
-        return new ProductEntity
-        {
-            IsOutOfStock = false,
-            Title = r.Title,
-            Id = Guid.NewGuid()
-        };
-    }
 
-    public override Response FromEntity(ProductEntity e)
+    public override Response FromEntity(CreateProductResult e)
     {
         return new Response
         {

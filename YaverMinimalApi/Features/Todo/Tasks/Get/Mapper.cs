@@ -1,12 +1,11 @@
 ﻿using Agrio.Bo.Todo.ApiBase.Features.Tasks.GetTask;
-using YaverMinimalApi.Features.Todo.Entities;
+using Agrio.Todo.ServiceBase.Features.Tasks.GetTask;
 
+namespace YaverMinimalApi.Features.Todo.Tasks.Get;
 
-namespace YaverMinimalApi.Features.Tasks.Get;
-
-public class Mapper : Mapper<Request, Response, TaskEntity>
+public class Mapper : Mapper<Request, Response, GetTaskResult>
 {
-    public override Response FromEntity(TaskEntity e)
+    public override Response FromEntity(GetTaskResult e)
     {
         return new Response(
             e.Id,

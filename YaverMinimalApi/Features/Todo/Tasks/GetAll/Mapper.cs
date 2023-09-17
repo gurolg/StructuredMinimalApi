@@ -1,15 +1,15 @@
 ﻿using Agrio.Bo.Todo.ApiBase.Features.Tasks.GetTasks;
-using YaverMinimalApi.Features.Todo.Entities;
+using Agrio.Todo.ServiceBase.Features.Tasks.GetTasks;
 
-namespace YaverMinimalApi.Features.Tasks.GetAll;
+namespace YaverMinimalApi.Features.Todo.Tasks.GetAll;
 
-public class Mapper : Mapper<Request, TaskListResponse, List<TaskEntity>>
+public class Mapper : Mapper<Request, TaskListResponse, GetTasksResult>
 {
-    public override TaskListResponse FromEntity(List<TaskEntity> e)
+    public override TaskListResponse FromEntity(GetTasksResult e)
     {
         return new TaskListResponse(
-            e.Count,
-            e.Select(e => new TaskListItem(
+            e.TotalCount,
+            e.Items.Select(e => new Agrio.Bo.Todo.ApiBase.Features.Tasks.GetTasks.TaskListItem(
                 e.Id,
                 e.IsComplete,
                 e.Title

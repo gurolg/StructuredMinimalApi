@@ -1,22 +1,12 @@
 ﻿using Agrio.Bo.Todo.ApiBase.Features.Tasks.CreateTask;
-using YaverMinimalApi.Features.Todo.Entities;
+using Agrio.Todo.ServiceBase.Features.Tasks.CreateTask;
 
+namespace YaverMinimalApi.Features.Todo.Tasks.Create;
 
-namespace YaverMinimalApi.Features.Tasks.Create;
-
-public class Mapper : Mapper<Request, Response, TaskEntity>
+public class Mapper : Mapper<Request, Response, CreateTaskResult>
 {
-    public override TaskEntity ToEntity(Request r)
-    {
-        return new TaskEntity
-        {
-            IsComplete = false,
-            Title = r.Title,
-            Id = Guid.NewGuid()
-        };
-    }
 
-    public override Response FromEntity(TaskEntity e)
+    public override Response FromEntity(CreateTaskResult e)
     {
         return new Response
         {

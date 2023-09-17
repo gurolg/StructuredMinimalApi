@@ -8,7 +8,7 @@
 GET {{BaseUrl}}/Products
     ?offset=0
     &limit=50
-    &term=1
+    &term=
     &sort=
     accept: application/json
 X-UserInfo: {{xUserInfo}}
@@ -52,3 +52,9 @@ Content-Type: application/json
     "title": "Get a haircut and shave",
     "isOutOfStock": "true"
 }
+
+### Get Product Bad Request
+GET {{BaseUrl}}/Products/00000000-0000-0000-0000-000000000FFF
+accept: application/json
+X-UserInfo: {{xUserInfo}}
+Accept-Language: tr

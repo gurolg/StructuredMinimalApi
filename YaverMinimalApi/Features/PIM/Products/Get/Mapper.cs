@@ -1,11 +1,11 @@
 ﻿using Agrio.Bo.PIM.ApiBase.Features.Products.GetProduct;
-using YaverMinimalApi.Features.Products.Entities;
+using Agrio.PIM.ServiceBase.Features.Products.GetProduct;
 
-namespace YaverMinimalApi.Features.Products.Get;
+namespace YaverMinimalApi.Features.PIM.Products.Get;
 
-public class Mapper : Mapper<Request, Response, ProductEntity>
+public class Mapper : Mapper<Request, Response, GetProductResult>
 {
-    public override Response FromEntity(ProductEntity e)
+    public override Response FromEntity(GetProductResult e)
     {
         return new Response(
             e.Id,

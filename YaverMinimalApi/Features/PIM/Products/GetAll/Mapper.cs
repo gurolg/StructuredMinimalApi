@@ -1,15 +1,15 @@
 ﻿using Agrio.Bo.PIM.ApiBase.Features.Products.GetProducts;
-using YaverMinimalApi.Features.Products.Entities;
+using Agrio.PIM.ServiceBase.Features.Products.GetProducts;
 
-namespace YaverMinimalApi.Features.Products.GetAll;
+namespace YaverMinimalApi.Features.PIM.Products.GetAll;
 
-public class Mapper : Mapper<Request, ProductListResponse, List<ProductEntity>>
+public class Mapper : Mapper<Request, ProductListResponse, GetProductsResult>
 {
-    public override ProductListResponse FromEntity(List<ProductEntity> e)
+    public override ProductListResponse FromEntity(GetProductsResult e)
     {
         return new ProductListResponse(
-            e.Count,
-            e.Select(e => new ProductListItem(
+            e.TotalCount,
+            e.Items.Select(e => new Agrio.Bo.PIM.ApiBase.Features.Products.GetProducts.ProductListItem(
                 e.Id,
                 e.IsOutOfStock,
                 e.Title,

@@ -1,11 +1,11 @@
 ﻿using Agrio.Bo.PIM.ApiBase.Features.Products.UpdateProduct;
-using YaverMinimalApi.Features.Products.Entities;
+using Agrio.PIM.ServiceBase.Features.Products.UpdateProduct;
 
-namespace YaverMinimalApi.Features.Products.Update;
+namespace YaverMinimalApi.Features.PIM.Products.Update;
 
-public class Mapper : Mapper<Request, Response, ProductEntity>
+public class Mapper : Mapper<Request, Response, UpdateProductResult>
 {
-    public override Response FromEntity(ProductEntity e)
+    public override Response FromEntity(UpdateProductResult e)
     {
         return new Response(
             e.Id,
@@ -15,11 +15,11 @@ public class Mapper : Mapper<Request, Response, ProductEntity>
         );
     }
 
-    public override ProductEntity UpdateEntity(Request r, ProductEntity e)
-    {
-        e.IsOutOfStock = r.IsOutOfStock;
-        e.Title = r.Title;
-        e.Quantity = r.Quantity;
-        return e;
-    }
+    // public override ProductEntity UpdateEntity(Request r, ProductEntity e)
+    // {
+    //     e.IsOutOfStock = r.IsOutOfStock;
+    //     e.Title = r.Title;
+    //     e.Quantity = r.Quantity;
+    //     return e;
+    // }
 }
