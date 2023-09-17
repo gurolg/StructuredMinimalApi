@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaverMinimalApi", "YaverMinimalApi\YaverMinimalApi.csproj", "{4BA03DA9-5C3D-47F0-8C93-6EED6B3BDA8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agrio.Bo.Todo.ApiBase", "Agrio.Bo.Todo.ApiBase\Agrio.Bo.Todo.ApiBase.csproj", "{C427FEC2-CFA6-425B-AC16-C5E894E1F76F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiContracts", "ApiContracts", "{A885CBA3-F76A-49F9-8317-C92A8A4788E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agrio.Bo.PIM.ApiBase", "Agrio.Bo.PIM.ApiBase\Agrio.Bo.PIM.ApiBase.csproj", "{ADA7FEC2-CFA6-425B-AC16-C5E894E1F76F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrio.Bo.PIM.ApiBase", "ApiContracts\Agrio.Bo.PIM.ApiBase\Agrio.Bo.PIM.ApiBase.csproj", "{61A6387A-1DD4-42D8-89B6-A3EB1A928AD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrio.Bo.Todo.ApiBase", "ApiContracts\Agrio.Bo.Todo.ApiBase\Agrio.Bo.Todo.ApiBase.csproj", "{D499553C-3C3F-45CF-A087-52ED3993FC86}"
 EndProject
 
 Global
@@ -20,10 +22,6 @@ Global
 		{4BA03DA9-5C3D-47F0-8C93-6EED6B3BDA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BA03DA9-5C3D-47F0-8C93-6EED6B3BDA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BA03DA9-5C3D-47F0-8C93-6EED6B3BDA8F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C427FEC2-CFA6-425B-AC16-C5E894E1F76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C427FEC2-CFA6-425B-AC16-C5E894E1F76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C427FEC2-CFA6-425B-AC16-C5E894E1F76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C427FEC2-CFA6-425B-AC16-C5E894E1F76F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54909246-23F9-4900-BBC2-35AA64E88C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54909246-23F9-4900-BBC2-35AA64E88C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54909246-23F9-4900-BBC2-35AA64E88C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -32,11 +30,23 @@ Global
 		{33B6418D-9FC1-4F84-AEED-6AB1A52DD02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33B6418D-9FC1-4F84-AEED-6AB1A52DD02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33B6418D-9FC1-4F84-AEED-6AB1A52DD02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A6387A-1DD4-42D8-89B6-A3EB1A928AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A6387A-1DD4-42D8-89B6-A3EB1A928AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A6387A-1DD4-42D8-89B6-A3EB1A928AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A6387A-1DD4-42D8-89B6-A3EB1A928AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D499553C-3C3F-45CF-A087-52ED3993FC86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D499553C-3C3F-45CF-A087-52ED3993FC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D499553C-3C3F-45CF-A087-52ED3993FC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D499553C-3C3F-45CF-A087-52ED3993FC86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53320F29-02E1-4802-9E1E-C368152D2682}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61A6387A-1DD4-42D8-89B6-A3EB1A928AD3} = {A885CBA3-F76A-49F9-8317-C92A8A4788E9}
+		{D499553C-3C3F-45CF-A087-52ED3993FC86} = {A885CBA3-F76A-49F9-8317-C92A8A4788E9}
 	EndGlobalSection
 EndGlobal

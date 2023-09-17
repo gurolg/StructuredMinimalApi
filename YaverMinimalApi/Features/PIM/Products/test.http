@@ -42,3 +42,13 @@ Content-Type: application/json
     "title": "Get a haircut and shave",
     "isOutOfStock": true
 }
+
+### Update Product Bad Request
+PUT {{BaseUrl}}/Products/00000000-0000-0000-0000-000000000005
+Accept-Language: tr
+X-UserInfo: {{xUserInfo}}
+Content-Type: application/json
+{
+    "title": "Get a haircut and shave",
+    "isOutOfStock": "true"
+}
