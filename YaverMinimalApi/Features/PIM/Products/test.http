@@ -1,0 +1,44 @@
+@xUserInfo=eyJleHAiOjE2OTQxNjcwODUsImlhdCI6MTY5NDE2Njc4NSwiYXV0aF90aW1lIjoxNjk0MTY2Nzg0LCJqdGkiOiJiZTAyNDI3OS0yNzMyLTRjZWQtYjA1ZS1lNGYxYzA5MjZjNWEiLCJpc3MiOiJodHRwczovL2FncmlvLWF1dGguZGV2LmFnci5pc3QvcmVhbG1zL2NvcnBvcmF0ZV9jdXN0b21lcnMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMGRiYWRlZDQtY2E3Mi00YTVkLWJlOTYtZmU2YjFmN2ZkYmM2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWdlbnQtcG9ydGFsLWNsaWVudCIsIm5vbmNlIjoiYTcwNDhjOTgtNTdjNy00YWJmLTgwY2EtN2Y2NWE2ODNjZGJjIiwic2Vzc2lvbl9zdGF0ZSI6ImJlNzJkYjAyLTE2M2UtNGNkOC1iNTU3LTFlZWRkNTFjYWY1NCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9hZ3Jpby1hZ2VudHMuZGV2LmFnci5pc3QiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImFnZW50IiwiY29ycG9yYXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWNvcnBvcmF0ZV9jdXN0b21lcnMiLCJ1bWFfYXV0aG9yaXphdGlvbiIsIktZQzIiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiYmU3MmRiMDItMTYzZS00Y2Q4LWI1NTctMWVlZGQ1MWNhZjU0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiR8O2emRlIEJ1c2UgVGFucsSxa3VsdSIsInByZWZlcnJlZF91c2VybmFtZSI6Iis5MDUwNzkyODMxOTEiLCJnaXZlbl9uYW1lIjoiR8O2emRlIEJ1c2UiLCJmYW1pbHlfbmFtZSI6IlRhbnLEsWt1bHUifQ==
+@BaseUrl=http://localhost:5000
+###
+
+## Products
+
+### Get Products
+GET {{BaseUrl}}/Products
+    ?offset=0
+    &limit=50
+    &term=1
+    &sort=
+    accept: application/json
+X-UserInfo: {{xUserInfo}}
+Accept-Language: tr
+# Content-Type: application/json
+
+
+
+### Get Product by Id
+GET {{BaseUrl}}/Products/00000000-0000-0000-0000-000000000005
+accept: application/json
+X-UserInfo: {{xUserInfo}}
+Accept-Language: tr
+# Content-Type: application/json
+
+### Create Product
+POST {{BaseUrl}}/Products
+Accept-Language: tr
+X-UserInfo: {{xUserInfo}}
+Content-Type: application/json
+{
+    "title": "Get a haircut"
+}
+
+### Update Product
+PUT {{BaseUrl}}/Products/00000000-0000-0000-0000-000000000005
+Accept-Language: tr
+X-UserInfo: {{xUserInfo}}
+Content-Type: application/json
+{
+    "title": "Get a haircut and shave",
+    "isOutOfStock": true
+}

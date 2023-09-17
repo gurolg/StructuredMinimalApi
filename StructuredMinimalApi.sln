@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaverMinimalApi", "YaverMinimalApi\YaverMinimalApi.csproj", "{4BA03DA9-5C3D-47F0-8C93-6EED6B3BDA8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.ApiBase", "TaskManager.ApiBase\TaskManager.ApiBase.csproj", "{C427FEC2-CFA6-425B-AC16-C5E894E1F76F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agrio.Bo.Todo.ApiBase", "Agrio.Bo.Todo.ApiBase\Agrio.Bo.Todo.ApiBase.csproj", "{C427FEC2-CFA6-425B-AC16-C5E894E1F76F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManager.ApiBase", "ProductManager.ApiBase\ProductManager.ApiBase.csproj", "{ADA7FEC2-CFA6-425B-AC16-C5E894E1F76F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agrio.Bo.PIM.ApiBase", "Agrio.Bo.PIM.ApiBase\Agrio.Bo.PIM.ApiBase.csproj", "{ADA7FEC2-CFA6-425B-AC16-C5E894E1F76F}"
 EndProject
 
 Global
