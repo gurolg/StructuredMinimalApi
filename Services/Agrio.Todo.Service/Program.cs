@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,9 @@ builder.AddHandlerServer();
 
 builder.Services.AddDbContext<ServiceDbContext>(options => options.UseInMemoryDatabase("Todo"));
 
+if (builder.Environment.IsDevelopment()) {
+	builder.Services.AddGrpcReflection();
+}
 
 var app = builder.Build();
 
@@ -37,6 +41,10 @@ app.MapHandlers(h => {
 using (var scope = app.Services.CreateScope()) {
 	var context = scope.ServiceProvider.GetRequiredService<ServiceDbContext>();
 	context.Database.EnsureCreated();
+}
+
+if (app.Environment.IsDevelopment()) {
+	app.MapGrpcReflectionService();
 }
 
 app.Run();
