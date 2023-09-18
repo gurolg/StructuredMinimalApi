@@ -1,14 +1,14 @@
 {
-  "profiles": {
-    "BackOffice": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "Kestrel__EndpointDefaults__Protocols": "Http1",
-        "AGRIO_APP_NAME": "backoffice-api",
-        "CONSUL_URI": "http://consul-consul-server:8500/"
-      },
-      "dotnetRunMessages": true
-    }
-  }
+	"profiles": {
+		"BackOffice": {
+			"commandName": "Project",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development",
+				"Kestrel__EndpointDefaults__Protocols": "Http1",
+				"AGRIO_APP_NAME": "backoffice-api",
+				"CONSUL_URI": "http://consul-consul-server:8500/"
+			},
+			"dotnetRunMessages": true
+		}
+	}
 }

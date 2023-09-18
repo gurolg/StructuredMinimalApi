@@ -4,25 +4,22 @@ using System.Threading.Tasks;
 
 using Agrio.Todo.Service.Data;
 using Agrio.Todo.ServiceBase.Features.Tasks.GetTasks;
-using Microsoft.EntityFrameworkCore;
 
+using Microsoft.EntityFrameworkCore;
 
 namespace Agrio.Todo.Service.Features.Tasks.GetTasks;
 
-public sealed class GetTasksCommandHandler(ServiceDbContext _db) : ICommandHandler<GetTasksCommand, GetTasksResult>
-{
-    public async Task<GetTasksResult> ExecuteAsync(GetTasksCommand command, CancellationToken ct)
-    {
+public sealed class GetTasksCommandHandler(ServiceDbContext db) : ICommandHandler<GetTasksCommand, GetTasksResult> {
+	public async Task<GetTasksResult> ExecuteAsync(GetTasksCommand command, CancellationToken ct) {
+		var mapper = new Mapper();
 
-        var _mapper = new Mapper();
+		var tasks = await db.Tasks
+			.AsNoTracking()
+			.Where(t => string.IsNullOrEmpty(command.Term) || t.Title.Contains(command.Term))
+			.ToListAsync(ct);
 
-        var Tasks = await _db.Tasks
-                .AsNoTracking()
-                .Where(t => string.IsNullOrEmpty(command.Term) || t.Title.Contains(command.Term))
-                .ToListAsync();
+		var response = mapper.FromEntity(tasks);
 
-        var response = _mapper.FromEntity(Tasks);
-
-        return response;
-    }
+		return response;
+	}
 }

@@ -1,32 +1,31 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Agrio.PIM.Service.Data;
 using Agrio.PIM.ServiceBase.Features.Products.UpdateProduct;
-using Microsoft.EntityFrameworkCore;
 
+using Microsoft.EntityFrameworkCore;
 
 namespace Agrio.PIM.Service.Features.Products.UpdateProduct;
 
-public sealed class UpdateProductCommandHandler(ServiceDbContext _db) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
-{
-	public async Task<UpdateProductResult> ExecuteAsync(UpdateProductCommand command, CancellationToken ct)
-	{
+public sealed class UpdateProductCommandHandler
+	(ServiceDbContext db) : ICommandHandler<UpdateProductCommand, UpdateProductResult> {
+	public async Task<UpdateProductResult> ExecuteAsync(UpdateProductCommand command, CancellationToken ct) {
+		var mapper = new Mapper();
 
-		var _mapper = new Mapper();
-
-		var product = await _db.Products
-				.AsNoTracking()
-				.Where(t => t.Id == command.Id)
-				.FirstOrDefaultAsync(ct) ?? throw new Exception("Product not found");
+		var product = await db.Products
+			.AsNoTracking()
+			.Where(t => t.Id == command.Id)
+			.FirstOrDefaultAsync(ct) ?? throw new Exception("Product not found");
 		//TODO: Standardize exceptions
 
 
-		product = _mapper.UpdateEntity(command, product);
-		_db.Products.Update(product);
-		await _db.SaveChangesAsync(ct);
+		product = mapper.UpdateEntity(command, product);
+		db.Products.Update(product);
+		await db.SaveChangesAsync(ct);
 
-		var response = _mapper.FromEntity(product);
+		var response = mapper.FromEntity(product);
 
 		return response;
 	}

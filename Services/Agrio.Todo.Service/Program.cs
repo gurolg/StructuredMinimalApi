@@ -1,4 +1,3 @@
-
 using Agrio.Todo.Service.Data;
 using Agrio.Todo.Service.Features.Tasks.CreateTask;
 using Agrio.Todo.Service.Features.Tasks.GetTask;
@@ -8,6 +7,7 @@ using Agrio.Todo.ServiceBase.Features.Tasks.CreateTask;
 using Agrio.Todo.ServiceBase.Features.Tasks.GetTask;
 using Agrio.Todo.ServiceBase.Features.Tasks.GetTasks;
 using Agrio.Todo.ServiceBase.Features.Tasks.UpdateTask;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Accept only HTTP/2 to allow insecure connections for development.
-builder.WebHost.ConfigureKestrel(o => o.ListenLocalhost(6001, o => o.Protocols = HttpProtocols.Http2));
+builder.WebHost.ConfigureKestrel(o => o.ListenLocalhost(6001, c => c.Protocols = HttpProtocols.Http2));
 builder.AddHandlerServer();
 
 
@@ -27,19 +27,16 @@ builder.Services.AddDbContext<ServiceDbContext>(options => options.UseInMemoryDa
 var app = builder.Build();
 
 
-
-app.MapHandlers(h =>
-{
-    h.Register<CreateTaskCommand, CreateTaskHandler, CreateTaskResult>();
-    h.Register<GetTasksCommand, GetTasksCommandHandler, GetTasksResult>();
-    h.Register<GetTaskCommand, GetTaskCommandHandler, GetTaskResult>();
-    h.Register<UpdateTaskCommand, UpdateTaskCommandHandler, UpdateTaskResult>();
+app.MapHandlers(h => {
+	h.Register<CreateTaskCommand, CreateTaskHandler, CreateTaskResult>();
+	h.Register<GetTasksCommand, GetTasksCommandHandler, GetTasksResult>();
+	h.Register<GetTaskCommand, GetTaskCommandHandler, GetTaskResult>();
+	h.Register<UpdateTaskCommand, UpdateTaskCommandHandler, UpdateTaskResult>();
 });
 
-using (var Scope = app.Services.CreateScope())
-{
-    var context = Scope.ServiceProvider.GetRequiredService<ServiceDbContext>();
-    context.Database.EnsureCreated();
+using (var scope = app.Services.CreateScope()) {
+	var context = scope.ServiceProvider.GetRequiredService<ServiceDbContext>();
+	context.Database.EnsureCreated();
 }
 
 app.Run();
