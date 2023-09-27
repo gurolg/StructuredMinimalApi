@@ -1,11 +1,12 @@
-﻿using Agrio.Bo.PIM.ApiBase.Features.Products.UpdateProduct;
+﻿using Agrio.Bo.PIM.ApiBase.Models;
+using Agrio.Bo.PIM.ApiBase.Tags.Products;
 using Agrio.PIM.ServiceBase.Features.Products.UpdateProduct;
 
 namespace YaverMinimalApi.Features.PIM.Products.Update;
 
-public class Mapper : Mapper<Request, Response, UpdateProductResult> {
-	public override Response FromEntity(UpdateProductResult e) {
-		return new Response(
+public class Mapper : Mapper<UpdateProductRequest, UpdateProductResponse, UpdateProductResult> {
+	public override UpdateProductResponse FromEntity(UpdateProductResult e) {
+		return new UpdateProductResponse(
 			e.Id,
 			e.IsOutOfStock,
 			e.Title,

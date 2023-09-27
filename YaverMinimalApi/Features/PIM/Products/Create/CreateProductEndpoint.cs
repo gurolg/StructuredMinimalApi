@@ -1,4 +1,8 @@
-﻿using Agrio.Bo.PIM.ApiBase.Features.Products.CreateProduct;
+﻿
+using System.Text.Json;
+
+using Agrio.Bo.PIM.ApiBase.Models;
+using Agrio.Bo.PIM.ApiBase.Tags.Products;
 using Agrio.PIM.ServiceBase.Features.Products.CreateProduct;
 
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -6,11 +10,11 @@ using Microsoft.AspNetCore.Http.HttpResults;
 namespace YaverMinimalApi.Features.PIM.Products.Create;
 
 public class CreateProductEndpoint : CreateProductEndpointBase<Mapper> {
-	public override async Task<Results<Created<Response>, BadRequest, ProblemDetails>> ExecuteAsync(
-		Request req,
+	public override async Task<Results<Created<CreateProductResponse>, BadRequest, ProblemDetails>> ExecuteAsync(
+		CreateProductRequest req,
 		CancellationToken ct) {
-		var result = await new CreateProductCommand { Title = req.Title }.RemoteExecuteAsync();
-
+		Console.WriteLine(JsonSerializer.Serialize(req));
+		var result = await new CreateProductCommand { Title = req.Body.Title }.RemoteExecuteAsync();
 
 		var response = Map.FromEntity(result);
 		return TypedResults.Created("", response);

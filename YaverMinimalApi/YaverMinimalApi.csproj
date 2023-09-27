@@ -8,25 +8,25 @@
 
 
 	<ItemGroup>
-		<ProjectReference
-			Include="../RestContracts/Agrio.Bo.PIM.ApiBase/Agrio.Bo.PIM.ApiBase.csproj"/>
-		<ProjectReference
-			Include="../RestContracts/Agrio.Bo.Todo.ApiBase/Agrio.Bo.Todo.ApiBase.csproj"/>
+		<ProjectReference Include="../RestContracts/Agrio.Bo.PIM.ApiBase/Agrio.Bo.PIM.ApiBase.csproj" />
+		<ProjectReference Include="../RestContracts/Agrio.Bo.Todo.ApiBase/Agrio.Bo.Todo.ApiBase.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference
-			Include="../RpcContracts/Agrio.PIM.ServiceBase/Agrio.PIM.ServiceBase.csproj"/>
-		<ProjectReference
-			Include="../RpcContracts/Agrio.Todo.ServiceBase/Agrio.Todo.ServiceBase.csproj"/>
+		<ProjectReference Include="../RpcContracts/Agrio.PIM.ServiceBase/Agrio.PIM.ServiceBase.csproj" />
+		<ProjectReference Include="../RpcContracts/Agrio.Todo.ServiceBase/Agrio.Todo.ServiceBase.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FastEndpoints.Messaging.Remote" Version="5.17.1.1"/>
+		<ProjectReference Include="../Libs/ApiLib/ApiLib.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FastEndpoints.Messaging.Remote" Version="5.17.1.1" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11"/>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0"/>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
 	</ItemGroup>
 
 </Project>
