@@ -52,9 +52,8 @@ app
 	.UseOpisExceptionHandler(logStructuredException: true)
 	.UseAuthentication()
 	.UseAuthorization()
-	.UseFastEndpoints(c =>
-	{
-		c.Serializer.Options.Converters.Add(new JsonStringEnumConverter());
+	.UseFastEndpoints(c => {
+		c.Serializer.Options.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
 		// c.Errors.UseProblemDetails();
 		c.Endpoints.Configurator = (ep) => { ep.PreProcessors(Order.Before, new MyRequestLogger()); };
 		//https://fast-endpoints.com/docs/configuration-settings#customizing-error-responses
@@ -74,8 +73,7 @@ app
 	});
 
 
-app.MapRemote("http://localhost:6000", c =>
-{
+app.MapRemote("http://localhost:6000", c => {
 	c.ChannelOptions.MaxRetryAttempts = 3;
 	//c.ChannelOptions.HttpHandler = new() { ... };
 	//c.ChannelOptions.ServiceConfig = new() { ... };
@@ -95,11 +93,9 @@ app.MapRemote("http://localhost:6000", c =>
 app.Run();
 
 
-public class MyRequestLogger : IGlobalPreProcessor
-{
+public class MyRequestLogger : IGlobalPreProcessor {
 	public async Task PreProcessAsync(object req, HttpContext ctx, List<ValidationFailure> failures,
-		CancellationToken ct)
-	{
+		CancellationToken ct) {
 		await Task.CompletedTask;
 		// var logger = ctx.RequestServices.GetRequiredService<ILogger>();
 		// logger.LogInformation($"request:{req?.GetType().FullName} path: {ctx.Request.Path}");

@@ -24,27 +24,21 @@ builder.AddHandlerServer();
 
 builder.Services.AddDbContext<ServiceDbContext>(options => options.UseInMemoryDatabase("Todo"));
 
-if (builder.Environment.IsDevelopment()) {
-	builder.Services.AddGrpcReflection();
-}
-
 var app = builder.Build();
 
 
-app.MapHandlers(h => {
+app.MapHandlers(h =>
+{
 	h.Register<CreateTaskCommand, CreateTaskHandler, CreateTaskResult>();
 	h.Register<GetTasksCommand, GetTasksCommandHandler, GetTasksResult>();
 	h.Register<GetTaskCommand, GetTaskCommandHandler, GetTaskResult>();
 	h.Register<UpdateTaskCommand, UpdateTaskCommandHandler, UpdateTaskResult>();
 });
 
-using (var scope = app.Services.CreateScope()) {
+using (var scope = app.Services.CreateScope())
+{
 	var context = scope.ServiceProvider.GetRequiredService<ServiceDbContext>();
 	context.Database.EnsureCreated();
-}
-
-if (app.Environment.IsDevelopment()) {
-	app.MapGrpcReflectionService();
 }
 
 app.Run();

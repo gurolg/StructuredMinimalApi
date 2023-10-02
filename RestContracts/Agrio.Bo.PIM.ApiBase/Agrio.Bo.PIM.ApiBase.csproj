@@ -3,12 +3,14 @@
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
 
+	<!-- FastEndpoints -->
 	<ItemGroup>
-		<PackageReference Include="FastEndpoints" Version="5.17.1.1"/>
+		<PackageReference Include="FastEndpoints" Version="5.*" />
 	</ItemGroup>
 
+	<!-- Global Usings -->
 	<ItemGroup>
-		<Using Include="System"/>
-		<Using Include="FastEndpoints"/>
+		<Using Include="System" />
+		<Using Include="FastEndpoints" />
 	</ItemGroup>
 </Project>

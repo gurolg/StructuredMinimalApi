@@ -4,9 +4,21 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <!-- FastEndpoints -->
   <ItemGroup>
-    <PackageReference Include="FastEndpoints" Version="5.17.1.1" />
+    <PackageReference Include="FastEndpoints" Version="5.*" />
+  </ItemGroup>
+
+  <!-- Authentication -->
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.2" />
+  </ItemGroup>
+
+  <!-- Global Usings -->
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="FastEndpoints" />
   </ItemGroup>
 </Project>

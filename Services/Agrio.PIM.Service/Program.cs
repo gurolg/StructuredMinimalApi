@@ -23,15 +23,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Accept only HTTP/2 to allow insecure connections for development.
 builder.WebHost.ConfigureKestrel(o => o.ListenAnyIP(6000, c => c.Protocols = HttpProtocols.Http2));
 builder.AddHandlerServer(
-	options => {
+	options =>
+	{
 		// options.Interceptors.Add<ServerLogInterceptor>();
 		// options.Interceptors.Add<ServerFeaturesInterceptor>();
 		// options.EnableMessageValidation();
 	});
 
-if (!builder.Environment.IsProduction()) {
-	builder.Services.AddGrpcReflection();
-}
 
 builder.Services.AddHttpContextAccessor();
 
@@ -47,7 +45,8 @@ builder.Services.AddGrpcValidation();
 var app = builder.Build();
 
 
-app.MapHandlers(h => {
+app.MapHandlers(h =>
+{
 	h.Register<CreateProductCommand, CreateProductHandler, CreateProductResult>();
 	h.Register<GetProductsCommand, GetProductsCommandHandler, GetProductsResult>();
 	h.Register<GetProductCommand, GetProductCommandHandler, GetProductResult>();
@@ -58,13 +57,11 @@ app.MapHandlers(h => {
 	//h.RegisterEventHub<SomethingHappened>();
 });
 
-using (var scope = app.Services.CreateScope()) {
+using (var scope = app.Services.CreateScope())
+{
 	var context = scope.ServiceProvider.GetRequiredService<ServiceDbContext>();
 	context.Database.EnsureCreated();
 }
 
-if (!app.Environment.IsProduction()) {
-	app.MapGrpcReflectionService();
-}
 
 app.Run();

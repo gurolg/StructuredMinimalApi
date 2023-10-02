@@ -5,17 +5,13 @@
 		<RootNamespace>Agrio.PIM.Service</RootNamespace>
 	</PropertyGroup>
 
+	<!-- FastEndpoints -->
 	<ItemGroup>
-		<PackageReference Include="FastEndpoints" Version="5.17.1.1" />
-		<PackageReference Include="FastEndpoints.Messaging.Remote" Version="5.17.1.1" />
-		<PackageReference Include="Calzolari.Grpc.AspNetCore.Validation" Version="6.3.0" />
-		<PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.51.0" />
+		<PackageReference Include="FastEndpoints" Version="5.*" />
+		<PackageReference Include="FastEndpoints.Messaging.Remote" Version="5.*" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="../../RpcContracts/Agrio.PIM.ServiceBase/Agrio.PIM.ServiceBase.csproj" />
-	</ItemGroup>
-
+	<!-- EntityFramework  -->
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.11" />
@@ -23,9 +19,20 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
 	</ItemGroup>
 
+	<!-- 3rd Party -->
+	<ItemGroup>
+		<PackageReference Include="Calzolari.Grpc.AspNetCore.Validation" Version="6.3.0" />
+	</ItemGroup>
+
+	<!-- Service Base -->
+	<ItemGroup>
+		<ProjectReference
+			Include="../../RpcContracts/Agrio.PIM.ServiceBase/Agrio.PIM.ServiceBase.csproj" />
+	</ItemGroup>
+
+	<!-- Global Usings -->
 	<ItemGroup>
 		<Using Include="System" />
 		<Using Include="FastEndpoints" />
 	</ItemGroup>
-	
 </Project>

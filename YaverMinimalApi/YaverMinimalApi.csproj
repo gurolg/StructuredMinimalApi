@@ -6,27 +6,36 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
+	<!-- FastEndpoints -->
+	<ItemGroup>
+		<PackageReference Include="FastEndpoints.Messaging.Remote" Version="5.*" />
+	</ItemGroup>
 
+	<!-- Rest Bases -->
 	<ItemGroup>
 		<ProjectReference Include="../RestContracts/Agrio.Bo.PIM.ApiBase/Agrio.Bo.PIM.ApiBase.csproj" />
 		<ProjectReference Include="../RestContracts/Agrio.Bo.Todo.ApiBase/Agrio.Bo.Todo.ApiBase.csproj" />
 	</ItemGroup>
 
+	<!-- Service Bases -->
 	<ItemGroup>
 		<ProjectReference Include="../RpcContracts/Agrio.PIM.ServiceBase/Agrio.PIM.ServiceBase.csproj" />
 		<ProjectReference Include="../RpcContracts/Agrio.Todo.ServiceBase/Agrio.Todo.ServiceBase.csproj" />
 	</ItemGroup>
 
+	<!-- Libs -->
 	<ItemGroup>
 		<ProjectReference Include="../Libs/ApiLib/ApiLib.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FastEndpoints.Messaging.Remote" Version="5.17.1.1" />
-	</ItemGroup>
-	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
 	</ItemGroup>
 
+	<!-- Global Usings -->
+	<ItemGroup>
+		<Using Include="System" />
+		<Using Include="FastEndpoints" />
+	</ItemGroup>
 </Project>
